@@ -24,3 +24,6 @@ script:
  - sudo pip install -r requirements_dev.txt --use-mirrors
  - nosetests iati_datastore --with-coverage --cover-package=iati_datastore --with-xunit --xunit-file=shippable/testresults/nosetests.xml
  - coverage xml -o shippable/codecoverage/coverage.xml
+ 
+ 
+ cache: true
