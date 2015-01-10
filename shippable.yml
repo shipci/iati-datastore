@@ -12,7 +12,7 @@ build_image: shippableimages/ubuntu1404_python
 before_install:
   # We're going to set up a virtualenv and activate the python version we want to use
   - mkdir -p $HOME/sample_ve/
-  - virtualenv -p /usr/bin/python$PYTHON_VERSION $HOME/sample_ve/
+  - virtualenv -p $SHIPPABLE_PYTHON $HOME/sample_ve/
   - source $HOME/sample_ve/bin/activate
 script: 
  - sudo apt-get install -y python-dev
