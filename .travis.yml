@@ -17,6 +17,7 @@ before_install:
 
 install: "pip install -r requirements_dev.txt --use-mirrors"
 
+
 script: 
   - nosetests iati_datastore --with-coverage --cover-package=iati_datastore --with-xunit --xunit-file=shippable/testresults/nosetests.xml
   - coverage xml -o shippable/codecoverage/coverage.xml
