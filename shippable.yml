@@ -14,11 +14,7 @@ before_install:
   - mkdir -p $HOME/sample_ve/
   - virtualenv -p $SHIPPABLE_PYTHON $HOME/sample_ve/
   - source $HOME/sample_ve/bin/activate
-
-script: 
- #- PATH=$WORKSPACE/ve/bin:/usr/local/bin:$PATH
- #- virtualenv ve
- #- . ve/bin/activate
+install:
  - sudo apt-get install -y python-dev
  - sudo easy_install -U pip
  - mkdir -p shippable/testresults shippable/codecoverage
@@ -27,6 +23,12 @@ script:
  - sudo apt-get update
  - sudo apt-get install -y postgresql redis-server python-pip libpq-dev libxml2-dev libxslt-dev
  - sudo pip install -r requirements_dev.txt --use-mirrors
+
+script: 
+ #- PATH=$WORKSPACE/ve/bin:/usr/local/bin:$PATH
+ #- virtualenv ve
+ #- . ve/bin/activate
+ 
  - nosetests iati_datastore --with-coverage --cover-package=iati_datastore --with-xunit --xunit-file=shippable/testresults/nosetests.xml
  - coverage xml -o shippable/codecoverage/coverage.xml
 
