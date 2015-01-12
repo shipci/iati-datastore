@@ -31,3 +31,4 @@ script:
  - coverage xml -o shippable/codecoverage/coverage.xml
 
 cache: true
+archive: true
